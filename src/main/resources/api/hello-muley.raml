@@ -1,0 +1,33 @@
+#%RAML 1.0
+title: hello-muley
+description: Hello World Mule Application
+version: v1
+baseUri: /api/{version}
+
+/health:
+  get:
+     responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "success": "OK",
+                "timestamp": "2024-07-21T16:56:06.611801Z"
+              }
+
+/hello/{name}:
+  uriParameters:
+    name:
+      type: string
+      example: "Muley"
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "message": "Hello Muley!"
+              }
+  
